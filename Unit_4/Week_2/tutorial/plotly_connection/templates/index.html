@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gráfico animado</title>
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+</head>
+<body>
+    <h2>Gráfico animado desde archivo JSON</h2>
+    <div id="graph-div"></div>
+
+    <script>
+        const graphJSON = JSON.parse({{ graphJSON | tojson | safe }});
+        Plotly.newPlot("graph-div", graphJSON.data, graphJSON.layout, {responsive: true});
+    </script>
+</body>
+</html>
